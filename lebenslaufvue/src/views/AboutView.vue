@@ -1,6 +1,39 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import ExperienceCarousel from '../components/ui/ExperienceCarousel.vue';
 import WeatherWidget from '../components/ui/WeatherWidget.vue';
+
+interface ExperienceItem {
+  title: string;
+  content: string;
+  link?: string;
+}
+
+const experienceItems = ref<ExperienceItem[]>([
+  {
+    title: 'Ausbildung',
+    content: 'Studium Softwaretechnik und Medieninformatik an der Hochschule Esslingen. Schwerpunkt Softwaretechnik.',
+    link: 'https://www.hs-esslingen.de/'
+  },
+  {
+    title: 'Erfahrung',
+    content: 'Werksstudent bei HerRiCon GmbH als Junior IT-Consultant.',
+    link: 'https://www.herricon.de/'
+  },
+  {
+    title: 'Kenntnisse',
+    content: 'Fachkundig in C, C++, Java und Python, sowie diversen Webentwicklungstechnologien, wie HTML, CSS und JavaScript.'
+  },
+  {
+    title: 'Projekte',
+    content: 'Entwicklung von Webseiten für Ferienfreizeiten.'
+  },
+   {
+    title: 'Kontakt',
+    content: 'Immer offen für neue spannende Projekte. Schreib mir gerne eine Mail!',
+    link: 'mailto:simeon@albrech.de'
+  }
+]);
 </script>
 
 <template>
@@ -17,7 +50,7 @@ import WeatherWidget from '../components/ui/WeatherWidget.vue';
     </div>
 
     <!-- Info Boxes Section -->
-    <ExperienceCarousel />
+    <ExperienceCarousel :items="experienceItems" />
 
     <div class="weather-section">
       <WeatherWidget />

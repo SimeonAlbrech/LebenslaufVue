@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
 import logo from '@/assets/images/Profilbild.jpeg';
 
@@ -21,6 +21,33 @@ function navigateTo(path: string) {
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
 }
+
+const currentTime = ref('');
+let timer: ReturnType<typeof setInterval> | undefined;
+
+const updateTime = () => {
+  const now = new Date();
+  const time = now.toLocaleTimeString('de-DE', {
+    timeZone: 'Europe/Berlin',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  const date = now.toLocaleDateString('de-DE', {
+    timeZone: 'Europe/Berlin',
+    day: 'numeric',
+    month: 'long'
+  });
+  currentTime.value = `${time}, ${date}`;
+};
+
+onMounted(() => {
+  updateTime();
+  timer = setInterval(updateTime, 1000);
+});
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer);
+});
 </script>
 
 <template>
@@ -31,6 +58,11 @@ function toggleMenu() {
           <img :src="logo" alt="Logo" />
         </div>
         <span class="header-title">Simeon Albrech</span>
+      </div>
+
+      <!-- Center Clock -->
+      <div class="header-clock">
+        {{ currentTime }}
       </div>
 
       <div class="header-right">
@@ -138,6 +170,23 @@ function toggleMenu() {
   font-weight: 600;
   font-size: 1.2rem;
   white-space: nowrap; 
+}
+
+/* --- Center Clock --- */
+.header-clock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-surface);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .header-clock {
+    font-size: 0.9rem;
+  }
 }
 
 /* --- Right Side (Nav + Menu) --- */

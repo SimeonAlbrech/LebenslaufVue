@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 
 interface ExperienceItem {
   title: string;
@@ -7,34 +7,12 @@ interface ExperienceItem {
   link?: string;
 }
 
-const infoBoxes: ExperienceItem[] = [
-  {
-    title: 'Ausbildung',
-    content: 'Studium Softwaretechnik und Medieninformatik an der Hochschule Esslingen. Schwerpunkt Softwaretechnik.',
-    link: 'https://www.hs-esslingen.de/'
-  },
-  {
-    title: 'Erfahrung',
-    content: 'Werksstudent bei HerRiCon GmbH als Junior IT-Consultant.',
-    link: 'https://www.herricon.de/'
-  },
-  {
-    title: 'Kenntnisse',
-    content: 'Fachkundig in C, C++, Java und Python, sowie diversen Webentwicklungstechnologien, wie HTML, CSS und JavaScript.'
-  },
-  {
-    title: 'Projekte',
-    content: 'Entwicklung von Webseiten für Ferienfreizeiten.'
-  },
-   {
-    title: 'Kontakt',
-    content: 'Immer offen für neue spannende Projekte. Schreib mir gerne eine Mail!',
-    link: 'mailto:simeon@albrech.de'
-  }
-];
+const props = defineProps<{
+  items: ExperienceItem[];
+}>();
 
-// Duplicate boxes to create the infinite scroll illusion
-const displayBoxes = ref<ExperienceItem[]>([...infoBoxes, ...infoBoxes, ...infoBoxes, ...infoBoxes, ...infoBoxes]);
+// Duplicate boxes to create the infinite scroll illusion based on props
+const displayBoxes = computed(() => [...props.items, ...props.items, ...props.items, ...props.items, ...props.items]);
 
 const scrollContainer = ref<HTMLDivElement | null>(null);
 

@@ -1,5 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed, watch } from 'vue';
+import SkillBadge from '@/components/ui/SkillBadge.vue';
+
+type FilterType = 'all' | 'education' | 'career';
+const currentFilter = ref<FilterType>('all');
+
+watch(currentFilter, (newVal) => {
+  console.log(`Filter changed to: ${newVal}`);
+});
+
+const isEducationVisible = computed(() => {
+  return currentFilter.value === 'all' || currentFilter.value === 'education';
+});
+
+const isCareerVisible = computed(() => {
+  return currentFilter.value === 'all' || currentFilter.value === 'career';
+});
 
 interface CareerStep {
   date: string;
@@ -48,9 +64,31 @@ const careerSteps = ref<CareerStep[]>([
     <div class="content-container">
       <h1 class="page-title">Mein Werdegang</h1>
 
+      <!-- Filter Buttons -->
+      <div class="filter-controls">
+        <button 
+          :class="{ active: currentFilter === 'all' }" 
+          @click="currentFilter = 'all'"
+        >
+          Alle
+        </button>
+        <button 
+          :class="{ active: currentFilter === 'education' }" 
+          @click="currentFilter = 'education'"
+        >
+          Ausbildung
+        </button>
+        <button 
+          :class="{ active: currentFilter === 'career' }" 
+          @click="currentFilter = 'career'"
+        >
+          Berufsweg
+        </button>
+      </div>
+
       <div class="sections-grid">
         <!-- Education Section -->
-        <section class="career-section">
+        <section class="career-section" v-if="isEducationVisible">
           <div class="section-header">
             <div class="icon-circle">🎓</div>
             <h2>Ausbildung</h2>
@@ -72,7 +110,7 @@ const careerSteps = ref<CareerStep[]>([
         </section>
 
         <!-- Career Section -->
-        <section class="career-section">
+        <section class="career-section" v-if="isCareerVisible">
           <div class="section-header">
             <div class="icon-circle">💼</div>
             <h2>Berufsweg</h2>
@@ -111,6 +149,20 @@ const careerSteps = ref<CareerStep[]>([
         </section>
       </div>
 
+      <!-- Skills Section (New Requirement Demo) -->
+      <section class="skills-section">
+        <h2 class="skills-title">Meine Kompetenzen</h2>
+        <div class="skills-cloud">
+          <SkillBadge name="Vue.js" level="Fortgeschritten" />
+          <SkillBadge name="TypeScript" level="Mittel" />
+          <SkillBadge name="HTML5 & CSS3" level="Experte" />
+          <SkillBadge name="Java" level="Fortgeschritten" />
+          <SkillBadge name="Python" level="Basis" />
+          <SkillBadge name="Git" />
+          <SkillBadge name="Docker" level="Basis" />
+        </div>
+      </section>
+
     </div>
   </div>
 </template>
@@ -140,10 +192,58 @@ const careerSteps = ref<CareerStep[]>([
   letter-spacing: -1px;
 }
 
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.filter-controls button {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.filter-controls button:hover,
+.filter-controls button.active {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
 .sections-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+  margin-bottom: 60px;
+}
+
+/* Skills Section */
+.skills-section {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.skills-title {
+  font-size: 2rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.skills-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Section Header */
