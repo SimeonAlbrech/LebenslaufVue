@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simeon Albrech - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header mit Profilbild und Links -->
+    <header class="fixed-header">
+        <div class="header-left">
+            <!-- Profilbild aus Datei laden -->
+            <div class="profile-pic"></div>
+            <span class="header-name">Simeon Albrech</span>
+        </div>
+        <div class="header-right">
+            <!-- Navigation zu verschiedenen Abschnitten -->
+            <nav>
+                <a href="#about" class="btn btn-white">About me</a>
+                <a href="#skills" class="btn btn-white">Skills</a>
+                <a href="#contact" class="btn btn-green">Get in touch</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Willkommenssektion mit Bild und Titel -->
+    <section class="hero-section">
+        <!-- Linke Seite: Gedrehter Text und Profilbild -->
+        <div class="hero-left">
+            <div class="gedreht-text-wrapper">
+                <span class="gedreht-text">Resumé</span>
+            </div>
+            <div class="bild-box-wrapper">
+                <div class="bild-box"></div>
+            </div>
+        </div>
+
+        <!-- Rechte Seite: Name und Berufsbezeichnung -->
+        <div class="hero-right">
+            <h1 class="intro-name">
+                SIMEON<br>ALBRECH
+            </h1>
+            <p class="intro-titel">
+                JUNIOR IT-CONSULTANT
+            </p>
+        </div>
+    </section>
+
+    <main>
+
+        <!-- Über mich Sektion mit ausklappbarem Text -->
+        <section id="about" class="profil-ueberblick">
+            <!-- Linke Spalte: Kurze Info zum Ausklappen -->
+            <section class="about-section">
+                <div class="about-interactive">
+                    <h2 class="about-trigger">ABOUT<br>ME</h2>
+
+                    <!-- Versteckter Inhalt, wird durch Klick angezeigt -->
+                    <div class="about-overlay">
+                        <div class="overlay-rotated-heading">
+                            <span>ABOUT ME</span>
+                        </div>
+                        <div class="overlay-text-content">
+                            <p>
+                                Ich bin Simeon Albrech, 20 Jahre alt und studiere aktuell Softwaretechnik an der Hochschule Esslingen. 
+                                Nebenher bin ich als Junior IT-Consultant bei der HerRiCon GmbH tätig und sammle damit schon früh auf meinem Berufsweg viel Praxiserfahrung. 
+                            </p>
+                            <p>
+                                Am meisten Spaß macht mir dabei die Arbeit mit meinen Kolleg:innen und die Lösung komplexerer Sachverhalte.
+                            </p>
+                            <p class="close-hint">
+                                (Klicke auf eine beliebige Stelle, um diese Ansicht zu schließen.)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rechte Spalte: Ausbildung und Berufsweg als Akkordeon -->
+            <section id="work" class="work-section">
+
+                <!-- Ausbildungssektion -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h2>Education</h2>
+                        <button class="accordion-toggle">+</button>
+                    </div>
+
+                    <div class="accordion-content">
+                        <div class="timeline">
+                            <div class="timeline-entry">
+                                <div class="timeline-date">
+                                    10/2024 – HEUTE
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>Hochschule Esslingen</h4>
+                                    <p>B.Eng. Softwaretechnik & Medieninformatik</p>
+                                    <ul>
+                                        <li>Schwerpunkt: Softwaretechnik</li>
+                                        <li>Aktuelles Semester: 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-entry">
+                                <div class="timeline-date">
+                                    07/2014 – 06/2023
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>Gymnasium am Krebsberg</h4>
+                                    <p>Allgemeine Hochschulreife</p>
+                                    <ul>
+                                        <li>Leistungsfächer: Mathe, Informatik</li>
+                                        <li>Abschlussnote: 1,3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Berufsweg-Sektion -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h2>Berufsweg</h2>
+                        <button class="accordion-toggle">+</button>
+                    </div>
+
+                    <div class="accordion-content">
+                        <div class="timeline">
+                            <div class="timeline-entry">
+                                <div class="timeline-date">
+                                    10/2024 – HEUTE
+                                </div>
+                                <div class="timeline-details">
+                                    <h4>HerRiCon GmbH</h4>
+                                    <p>Junior IT-Consultant (Werkstudent)</p>
+                                    <ul>
+                                        <li>Entwicklung von internen Tools</li>
+                                        <li>Kunden-Support im Bereich IT-Infrastruktur</li>
+                                        <li>Mitarbeit an Cloud-Projekten</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Skills und Kontakt Sektion (nebeneinander) -->
+        <section class="skills-contact-container">
+
+            <!-- Linke Spalte: Technische und Soft Skills -->
+            <section id="skills" class="skills-section">
+                <div class="skills-container">
+                    <h2>Skills</h2>
+                    <div class="skills-grid">
+                        <!-- Sprachkenntnisse -->
+                        <div class="skill-category">
+                            <h3>Sprachen</h3>
+                            <div class="skill-item">
+                                <span class="skill-name">Deutsch</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 100%;">100%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Englisch</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 85%;">85%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Französisch</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 50%;">50%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Programmiersprachen -->
+                        <div class="skill-category">
+                            <h3>Programmiersprachen</h3>
+                            <div class="skill-item">
+                                <span class="skill-name">C++</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 80%;">80%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">C</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 70%;">70%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 65%;">65%</div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Java</span>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" style="width: 60%;">60%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Soft Skills mit Symbolen -->
+                        <div class="skill-category">
+                            <h3>Soft Skills</h3>
+                            <div class="soft-skills-container">
+                                <div class="soft-skill-item">
+                                    <div class="soft-skill-picto" id="picto-team"></div>
+                                    <span class="soft-skill-name">Team Spirit</span>
+                                </div>
+                                <div class="soft-skill-item">
+                                    <div class="soft-skill-picto" id="picto-assertive"></div>
+                                    <span class="soft-skill-name">Assertiveness</span>
+                                </div>
+                                <div class="soft-skill-item">
+                                    <div class="soft-skill-picto" id="picto-comm"></div>
+                                    <span class="soft-skill-name">Communication</span>
+                                </div>
+                                <div class="soft-skill-item">
+                                    <div class="soft-skill-picto" id="picto-empathy"></div>
+                                    <span class="soft-skill-name">Empathy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </section>
+
+            <!-- Rechte Spalte: Kontakt CTA Box -->
+            <section class="contact-section">
+                <div id="contact" class="contact-box">
+                    <div class="cta-rundes-bild"></div>
+                    <h2>Get in touch</h2>
+                    <p>Ich freue mich auf deine Nachricht!</p>
+                    <!-- Button öffnet Kontaktformular Modal -->
+                    <button class="btn btn-white btn-open-modal">Contact me</button>
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Kontaktformular Modal (versteckt, wird durch Button angezeigt) -->
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2>Kontakt</h2>
+                <p>Sende mir gerne eine Nachricht.</p>
+
+                <!-- Kontaktformular mit Name, Email und Nachricht -->
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nachricht</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-white ">Nachricht senden</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main> 
+
+    <!-- JavaScript für interaktive Funktionen -->
+    <script src="interaktion.js"></script>
+
+</body>
+</html>
