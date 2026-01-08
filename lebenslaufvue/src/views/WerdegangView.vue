@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import SkillBadge from '@/components/ui/SkillBadge.vue';
+
 
 type FilterType = 'all' | 'education' | 'career';
 const currentFilter = ref<FilterType>('all');
@@ -149,19 +149,7 @@ const careerSteps = ref<CareerStep[]>([
         </section>
       </div>
 
-      <!-- Skills Section (New Requirement Demo) -->
-      <section class="skills-section">
-        <h2 class="skills-title">Meine Kompetenzen</h2>
-        <div class="skills-cloud">
-          <SkillBadge name="Vue.js" level="Fortgeschritten" />
-          <SkillBadge name="TypeScript" level="Mittel" />
-          <SkillBadge name="HTML5 & CSS3" level="Experte" />
-          <SkillBadge name="Java" level="Fortgeschritten" />
-          <SkillBadge name="Python" level="Basis" />
-          <SkillBadge name="Git" />
-          <SkillBadge name="Docker" level="Basis" />
-        </div>
-      </section>
+
 
     </div>
   </div>
@@ -223,28 +211,7 @@ const careerSteps = ref<CareerStep[]>([
   margin-bottom: 60px;
 }
 
-/* Skills Section */
-.skills-section {
-  text-align: center;
-  padding: 40px 0;
-  border-top: 1px solid var(--color-border-light);
-}
 
-.skills-title {
-  font-size: 2rem;
-  color: var(--color-primary-dark);
-  margin-bottom: 30px;
-  font-weight: 700;
-}
-
-.skills-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  max-width: 800px;
-  margin: 0 auto;
-}
 
 /* Section Header */
 .section-header {
